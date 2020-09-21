@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:tns="http://tempurl.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempurl.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempurl.org">
+            <s:element name="get_downloaddocuments">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="document_number" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="document_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_downloaddocumentsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_downloaddocumentsResult" type="tns:s_return_download_documents"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_download_documents">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_pdf_url" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfLong">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="long" type="s:long"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="get_downloadreceipt">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="or_number" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="or_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_downloadreceiptResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_downloadreceiptResult" type="tns:s_return_download_receipt"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_download_receipt">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_pdf_url" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="get_downloadsoa">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="start_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="end_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_downloadsoaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_downloadsoaResult" type="tns:s_return_download_soa"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_download_soa">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="soa_pdf_url" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="get_facilityreceipts">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="start_receipt_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="end_receipt_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_facilityreceiptsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_facilityreceiptsResult" type="tns:s_return_facility_receipts"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_facility_receipts">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_number" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="reference_no" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfDateTime">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="dateTime" type="s:dateTime"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfDecimal">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="decimal" type="s:decimal"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="get_outstandinginvoices">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_outstandinginvoicesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_outstandinginvoicesResult" type="tns:s_return_outstanding_invoices"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_outstanding_invoices">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_class" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="arledgeritemid" type="tns:ArrayOfInt"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_number" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_mode" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="due_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="billing_type" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="item_description" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="outstanding_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfInt">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="get_overdueinvoices">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="as_at_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_overdueinvoicesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_overdueinvoicesResult" type="tns:s_return_get_overdue_invoices"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_get_overdue_invoices">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_class" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="arledgeritemid" type="tns:ArrayOfInt"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_number" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="due_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="billing_type" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="item_description" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_mode" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="outstanding_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="send_payment">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="unitid" type="tns:ArrayOfInt"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="transaction_class" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="arledgeritemid" type="tns:ArrayOfInt"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="reference_no" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payment_method" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payment_amount" type="tns:ArrayOfDecimal"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="requestid" type="tns:ArrayOfLong"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="tns:ArrayOfString"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="send_paymentResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="send_paymentResult" type="tns:s_return_send_payment"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_send_payment">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_number" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_pdf_url" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="get_transactions">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="transaction_class" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="start_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="end_date" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="get_transactionsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="get_transactionsResult" type="tns:s_return_get_transactions"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_get_transactions">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_class" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="arledgeritemid" type="tns:ArrayOfInt"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_number" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="due_date" type="tns:ArrayOfDateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="billing_type" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="item_description" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="transaction_mode" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="document_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="outstanding_amount" type="tns:ArrayOfDecimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="send_facilitypayment">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="unitid" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payment_method" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="reference_no" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="document_date" type="s:dateTime"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payment_description" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="deposit_amount" type="s:decimal"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="booking_fee_amount" type="s:decimal"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="facility_type" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="requestid" type="s:long"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="send_facilitypaymentResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="send_facilitypaymentResult" type="tns:s_return_facility_payment"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="s_return_facility_payment">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_status" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="process_error" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_number" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="or_pdf_url" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="returnid" type="tns:ArrayOfLong"/>
+                </s:sequence>
+            </s:complexType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="get_downloaddocumentsSoapIn">
+        <wsdl:part name="parameters" element="tns:get_downloaddocuments"/>
+    </wsdl:message>
+    <wsdl:message name="get_downloaddocumentsSoapOut">
+        <wsdl:part name="parameters" element="tns:get_downloaddocumentsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_downloadreceiptSoapIn">
+        <wsdl:part name="parameters" element="tns:get_downloadreceipt"/>
+    </wsdl:message>
+    <wsdl:message name="get_downloadreceiptSoapOut">
+        <wsdl:part name="parameters" element="tns:get_downloadreceiptResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_downloadsoaSoapIn">
+        <wsdl:part name="parameters" element="tns:get_downloadsoa"/>
+    </wsdl:message>
+    <wsdl:message name="get_downloadsoaSoapOut">
+        <wsdl:part name="parameters" element="tns:get_downloadsoaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_facilityreceiptsSoapIn">
+        <wsdl:part name="parameters" element="tns:get_facilityreceipts"/>
+    </wsdl:message>
+    <wsdl:message name="get_facilityreceiptsSoapOut">
+        <wsdl:part name="parameters" element="tns:get_facilityreceiptsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_outstandinginvoicesSoapIn">
+        <wsdl:part name="parameters" element="tns:get_outstandinginvoices"/>
+    </wsdl:message>
+    <wsdl:message name="get_outstandinginvoicesSoapOut">
+        <wsdl:part name="parameters" element="tns:get_outstandinginvoicesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_overdueinvoicesSoapIn">
+        <wsdl:part name="parameters" element="tns:get_overdueinvoices"/>
+    </wsdl:message>
+    <wsdl:message name="get_overdueinvoicesSoapOut">
+        <wsdl:part name="parameters" element="tns:get_overdueinvoicesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="send_paymentSoapIn">
+        <wsdl:part name="parameters" element="tns:send_payment"/>
+    </wsdl:message>
+    <wsdl:message name="send_paymentSoapOut">
+        <wsdl:part name="parameters" element="tns:send_paymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_transactionsSoapIn">
+        <wsdl:part name="parameters" element="tns:get_transactions"/>
+    </wsdl:message>
+    <wsdl:message name="get_transactionsSoapOut">
+        <wsdl:part name="parameters" element="tns:get_transactionsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="send_facilitypaymentSoapIn">
+        <wsdl:part name="parameters" element="tns:send_facilitypayment"/>
+    </wsdl:message>
+    <wsdl:message name="send_facilitypaymentSoapOut">
+        <wsdl:part name="parameters" element="tns:send_facilitypaymentResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="n_ebppSoap">
+        <wsdl:operation name="get_downloaddocuments">
+            <wsdl:input message="tns:get_downloaddocumentsSoapIn"/>
+            <wsdl:output message="tns:get_downloaddocumentsSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_downloadreceipt">
+            <wsdl:input message="tns:get_downloadreceiptSoapIn"/>
+            <wsdl:output message="tns:get_downloadreceiptSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_downloadsoa">
+            <wsdl:input message="tns:get_downloadsoaSoapIn"/>
+            <wsdl:output message="tns:get_downloadsoaSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_facilityreceipts">
+            <wsdl:input message="tns:get_facilityreceiptsSoapIn"/>
+            <wsdl:output message="tns:get_facilityreceiptsSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_outstandinginvoices">
+            <wsdl:input message="tns:get_outstandinginvoicesSoapIn"/>
+            <wsdl:output message="tns:get_outstandinginvoicesSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_overdueinvoices">
+            <wsdl:input message="tns:get_overdueinvoicesSoapIn"/>
+            <wsdl:output message="tns:get_overdueinvoicesSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="send_payment">
+            <wsdl:input message="tns:send_paymentSoapIn"/>
+            <wsdl:output message="tns:send_paymentSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_transactions">
+            <wsdl:input message="tns:get_transactionsSoapIn"/>
+            <wsdl:output message="tns:get_transactionsSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="send_facilitypayment">
+            <wsdl:input message="tns:send_facilitypaymentSoapIn"/>
+            <wsdl:output message="tns:send_facilitypaymentSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="n_ebppSoap" type="tns:n_ebppSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="get_downloaddocuments">
+            <soap:operation soapAction="http://tempurl.org/get_downloaddocuments" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_downloadreceipt">
+            <soap:operation soapAction="http://tempurl.org/get_downloadreceipt" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_downloadsoa">
+            <soap:operation soapAction="http://tempurl.org/get_downloadsoa" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_facilityreceipts">
+            <soap:operation soapAction="http://tempurl.org/get_facilityreceipts" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_outstandinginvoices">
+            <soap:operation soapAction="http://tempurl.org/get_outstandinginvoices" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_overdueinvoices">
+            <soap:operation soapAction="http://tempurl.org/get_overdueinvoices" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="send_payment">
+            <soap:operation soapAction="http://tempurl.org/send_payment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_transactions">
+            <soap:operation soapAction="http://tempurl.org/get_transactions" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="send_facilitypayment">
+            <soap:operation soapAction="http://tempurl.org/send_facilitypayment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="n_ebppSoap12" type="tns:n_ebppSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="get_downloaddocuments">
+            <soap12:operation soapAction="http://tempurl.org/get_downloaddocuments" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_downloadreceipt">
+            <soap12:operation soapAction="http://tempurl.org/get_downloadreceipt" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_downloadsoa">
+            <soap12:operation soapAction="http://tempurl.org/get_downloadsoa" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_facilityreceipts">
+            <soap12:operation soapAction="http://tempurl.org/get_facilityreceipts" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_outstandinginvoices">
+            <soap12:operation soapAction="http://tempurl.org/get_outstandinginvoices" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_overdueinvoices">
+            <soap12:operation soapAction="http://tempurl.org/get_overdueinvoices" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="send_payment">
+            <soap12:operation soapAction="http://tempurl.org/send_payment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_transactions">
+            <soap12:operation soapAction="http://tempurl.org/get_transactions" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="send_facilitypayment">
+            <soap12:operation soapAction="http://tempurl.org/send_facilitypayment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="n_ebpp">
+        <wsdl:port name="n_ebppSoap" binding="tns:n_ebppSoap">
+            <soap:address location="http://localhost/eBPPapi/n_ebpp.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="n_ebppSoap12" binding="tns:n_ebppSoap12">
+            <soap12:address location="http://localhost/eBPPapi/n_ebpp.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
