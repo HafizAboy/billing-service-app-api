@@ -14,7 +14,7 @@ public class SOAPConfig {
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         // this is the package name specified in the <generatePackage> specified in pom.xml
-        marshaller.setContextPath("com.ewx.ebpp.noetic.wsdl");
+        marshaller.setContextPath("com.billing.app.noetic.wsdl");
         return marshaller;
     }
 	
